@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ShadeMarang KMS
 
-## Getting Started
+Aplikasi Next.js App Router untuk eksplorasi kondisi panas dan pengetahuan mitigasi Kota Semarang.
 
-First, run the development server:
+## Menjalankan
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Build produksi: `npm run build`, lalu `npm run start`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Rute utama
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/` beranda; `/dashboard` dashboard UHI; `/mitigation` mitigasi.
+- Peta wilayah berada di `/dashboard`; `/wilayah` mengarah kembali ke dashboard. `/wilayah/[id]` tetap tersedia sebagai detail wilayah langsung.
+- `/siklus-kms` tujuh tahap KMS; `/kelola` antarmuka admin demo.
+- `/knowledge` repositori pengetahuan; `/chat` Tanya AI; `/evaluation` evaluasi untuk publik dan stakeholder.
 
-## Learn More
+## API
 
-To learn more about Next.js, take a look at the following resources:
+- `GET /api/districts` — 16 kecamatan dan dua stasiun BMKG contoh.
+- `GET /api/districts/[id]` — detail kecamatan.
+- `GET /api/articles` dan `POST /api/articles` — daftar dan tambah artikel demo. POST menerima `title`, `description`, `content`, `category` (`Hotspot`, `Mitigasi`, `RTH`, `Panduan`), serta `author` opsional.
+- `POST /api/simulate` — input JSON `{ "districtId": "w-1", "ndviIncrease": 0.1, "canopyPct": 25, "coolRoofPct": 20 }`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Data wilayah, artikel awal, dan stasiun adalah contoh. Artikel baru tersimpan di memori proses server dan hilang saat server dimulai ulang. Simulasi menggunakan Random Forest sembilan pohon yang dilatih pada label sintetis; hasilnya ilustratif dan belum divalidasi dengan pengukuran lapangan. Login admin dari antarmuka sumber adalah login demo di sisi klien, bukan pengamanan API produksi.

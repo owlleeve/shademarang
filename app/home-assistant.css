@@ -1,0 +1,29 @@
+/* The assistant shares the public library palette while keeping a distinct, quieter surface. */
+.home-chat-panel {
+  color: var(--ink) !important;
+  background: linear-gradient(145deg, #f2e4eb 0%, #ead8e2 100%) !important;
+  border: 1px solid #d8bcc9;
+  box-shadow: 0 12px 28px #6e3e5318 !important;
+}
+
+.home-chat-panel p { color: #5f4d57 !important; }
+.home-chat-panel .home-panel-footer { border-top-color: #d4b8c5 !important; }
+.home-chat-panel .home-sparkle { background: var(--primary); color: #fff !important; }
+.home-chat-panel .home-engine {
+  border-color: #b990a4;
+  color: #63394e;
+  background: #f8eef2;
+}
+.home-chat-panel .eyebrow.light { color: #63394e; }
+.home-chat-panel .home-prompts > span { color: #704258; }
+.home-chat-panel .home-prompts button {
+  border-color: #caa8b8;
+  background: #f8eef2;
+  color: var(--ink);
+}
+.home-chat-panel .home-prompts button:hover {
+  border-color: var(--primary);
+  background: #fff9fb;
+}
+.home-chat-panel .home-chat-button { background: var(--primary); color: #fff; border-color: var(--primary); }
+.home-chat-panel .home-chat-button:hover { background: #704258; border-color: #704258; }

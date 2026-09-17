@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Legacy Vite source retained for compatibility routes; canonical UI lives in app/portal.tsx.
+    "app/kms/source/**",
   ]),
 ]);
 

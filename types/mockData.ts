@@ -1,0 +1,47 @@
+export const INITIAL_USERS: import("../types/kms").UserAccount[] = [
+  {
+    id: 'usr-1',
+    name: 'Admin Bappeda',
+    email: 'admin@demo.id',
+    role: 'admin',
+    status: 'Aktif',
+    department: 'Bappeda Litbang Kota Semarang',
+    initial: 'A',
+  },
+  {
+    id: 'usr-2',
+    name: 'Budi DLH',
+    email: 'user@demo.id',
+    role: 'staff',
+    status: 'Aktif',
+    department: 'Dinas Lingkungan Hidup Kota Semarang',
+    initial: 'B',
+  },
+  {
+    id: 'usr-3',
+    name: 'Citra PUPR',
+    email: 'citra@demo.id',
+    role: 'staff',
+    status: 'Menunggu',
+    department: 'Dinas Pekerjaan Umum & Penataan Ruang',
+    initial: 'C',
+  },
+  {
+    id: 'usr-4',
+    name: 'Dedi Disperkim',
+    email: 'dedi@demo.id',
+    role: 'staff',
+    status: 'Aktif',
+    department: 'Dinas Perumahan & Kawasan Permukiman',
+    initial: 'D',
+  },
+  {
+    id: 'usr-5',
+    name: 'Dr. Retno Undip',
+    email: 'retno@undip.ac.id',
+    role: 'staff',
+    status: 'Aktif',
+    department: 'Pusat Studi Lingkungan Hidup UNDIP',
+    initial: 'R',
+  }
+];
