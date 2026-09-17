@@ -72,7 +72,7 @@ export default function Portal({initialPage="Beranda"}:{initialPage?:Page}){
  {page==="Dashboard UHI"&&<DashboardUhi areas={areas} knowledge={visibleDocs} actions={visibleActions} selected={selectedArea} onArea={setSelectedArea} onKnowledge={openDoc} onAction={openAction} onMap={goMap} onAnalysis={()=>go("Analisis")} onEvaluation={()=>go("Evaluasi")} onAI={()=>go("Tanya AI")} internal={internal}/>}
  {page==="Tanya AI"&&<PortalChat knowledge={visibleDocs} onKnowledge={openDoc} onExplore={()=>go("Pengetahuan")}/>}
  {page==="Pengetahuan"&&!internal&&<PublicKnowledgePanel docs={visibleDocs}/>} 
- {page==="Pengetahuan"&&internal&&<PrivateKnowledgePanel docs={visibleDocs} role={role==="admin"?"admin":"staff"} onManage={()=>go("Kelola KMS")} onApprove={id=>updateDoc(id,"dipublikasikan")}/>} 
+ {page==="Pengetahuan"&&internal&&<PrivateKnowledgePanel docs={visibleDocs} role={role} onManage={()=>go("Kelola KMS")} onApprove={id=>updateDoc(id,"dipublikasikan")}/>} 
  {page==="Beranda"&&<>
   <section className="hero"><div className="shell home-hero">
    <div className="home-intro"><span className="eyebrow">Kota Semarang · ruang belajar bersama</span><h1>Memahami panas kota,<br/><span style={{color:"var(--primary)"}}>memilih langkah yang tepat.</span></h1><p className="lead">Temukan kondisi wilayah, tindakan yang pernah dilakukan, dan hasil yang dipelajari agar keputusan berikutnya punya dasar yang jelas.</p>
