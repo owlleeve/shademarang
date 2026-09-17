@@ -2,10 +2,6 @@ import type { SimulationInput, SimulationResult } from "./types";
 import { getDistrict } from "./mockData";
 import { predictReduction } from "./randomForest";
 
-export function formatCelsius(value: number) {
-  return `${value.toFixed(1)}°C`;
-}
-
 export function simulateCooling(input: SimulationInput): SimulationResult | null {
   const district = getDistrict(input.districtId);
   if (!district) return null;

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { INITIAL_WILAYAH, MOCK_DBSCAN_CLUSTERS } from "./kms/source/data/mockData";
+import { INITIAL_WILAYAH, MOCK_DBSCAN_CLUSTERS } from "@/lib/referenceData";
 import type { SimulationResult } from "@/lib/types";
 
 type Knowledge = { id: string; title: string; summary: string; area: string; category: string };

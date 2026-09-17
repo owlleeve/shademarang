@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const links = [
   ["/", "Beranda"], ["/dashboard", "Dashboard UHI"],
-  ["/kms/knowledge", "Pengetahuan"], ["/mitigation", "Mitigasi"],
-  ["/siklus-kms", "Siklus KMS"], ["/kelola", "Kelola"],
+  ["/knowledge", "Pengetahuan"], ["/mitigation", "Mitigasi"],
+  ["/analysis", "Analisis"],
 ] as const;
 
 export function Navbar() {
