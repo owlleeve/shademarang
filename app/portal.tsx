@@ -58,6 +58,8 @@ export default function Portal({initialPage="Beranda"}:{initialPage?:Page}){
  const area=areas.find(a=>a.name===selectedArea)!;
  const displayAreas=useMemo(()=>period==="2024"?areas.map(a=>({...a,heat:Number((a.heat-a.change).toFixed(1))})):areas,[period]);
  const log=(text:string)=>setAudit(prev=>[`${new Date().toLocaleString("id-ID")} · ${role} · ${text}`,...prev]);
+
+ if(!ready)return <main className="portal-loading" aria-live="polite">Memuat ruang kerja ShadeMarang…</main>;
  const goMap=()=>{setPage("Dashboard UHI");setDetail(null);window.setTimeout(()=>document.getElementById("dashboard-map-title")?.scrollIntoView({behavior:"smooth",block:"start"}),0)};
  const go=(p:Page)=>{if(p==="Tanya AI"&&internal){setMessage("Tanya AI hanya tersedia untuk pengguna publik.");return}if(p==="Peta wilayah"){goMap();return}if((p==="Analisis"&&!internal)||(p==="Kelola KMS"&&!canWrite&&!reviewer)){setMessage("Masuk sebagai pengguna internal untuk membuka halaman ini.");return}if(p==="Analisis")setPeriod("2025");if(p==="Pengetahuan")setPeriod("semua");setPage(p);setDetail(null);window.scrollTo(0,0)};
  const openDoc=(id:string)=>setDetail({type:"doc",id});const openAction=(id:string)=>setDetail({type:"action",id});const openEval=(id:string)=>setDetail({type:"evaluation",id});
