@@ -1,0 +1,23 @@
+.planning-overview{margin:24px 0;padding:24px 28px;border:1px solid #ece4e8;border-radius:24px;background:#fff}
+.dashboard-planning{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:24px;align-items:center;margin-top:24px;padding:28px 32px;border:1px solid #ece4e8;border-radius:24px;background:#fff}
+.dashboard-planning h2{margin:8px 0 10px;color:#272023}
+.dashboard-planning p{max-width:650px;color:#595155;line-height:1.65}
+.dashboard-planning-status{display:grid;gap:4px;align-content:center;min-height:150px;padding:20px;border-left:1px solid #ece4e8}
+.dashboard-planning-status strong{font-family:var(--font-display);font-size:44px;color:#6e3e53}
+.dashboard-planning-status p{font-size:12px;margin:0}
+.planning-overview-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px}
+.planning-overview h2,.planning-drawer h2{margin:8px 0 10px;color:#272023}
+.planning-overview p,.planning-drawer p{color:#595155;line-height:1.65}
+.planning-overview-head p{margin:0;max-width:650px}
+.planning-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px}
+.planning-list article{padding:18px;border:1px solid #ece4e8;border-radius:20px;background:#faf7f5}
+.planning-list h3{margin:8px 0;font-size:18px}
+.planning-list p{margin:7px 0;font-size:13px}
+.planning-list .text-link{text-align:left;margin-top:6px}
+.planning-drawer{width:min(580px,calc(100vw - 24px));max-height:calc(100vh - 32px);overflow:auto}
+.planning-drawer .form{margin-top:20px}
+.planning-source{display:grid;gap:5px;padding:18px 20px;border:1px solid #ece4e8;border-radius:20px;background:#faf7f5}
+.planning-source strong{color:#272023}
+.planning-source p{font-size:13px;margin:4px 0}
+.planning-source a{color:#6e3e53;font-size:12px;font-weight:700}
+@media(max-width:700px){.dashboard-planning{grid-template-columns:1fr;padding:22px}.dashboard-planning-status{min-height:auto;border-left:0;border-top:1px solid #ece4e8;padding:14px 0 0}.planning-overview{padding:20px}.planning-list{grid-template-columns:1fr}.planning-overview-head{flex-direction:column}}

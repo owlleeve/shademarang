@@ -1,0 +1,28 @@
+.dashboard-role-panel{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(230px,.6fr);gap:24px;margin-top:24px;padding:28px 30px;border:1px solid #ece4e8;border-radius:24px;background:#fff}
+.dashboard-role-panel h2{margin:9px 0 10px;color:#272023}
+.dashboard-role-panel p{max-width:680px;margin:0;color:#595155;line-height:1.65}
+.dashboard-role-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.dashboard-role-evidence{display:grid;align-content:center;gap:8px;padding-left:24px;border-left:1px solid #ece4e8}
+.dashboard-role-evidence button{border:1px solid #ece4e8;background:#faf7f5;border-radius:13px;padding:10px 12px;text-align:left;color:#272023;font-size:12px;cursor:pointer}
+.dashboard-role-evidence button:hover{border-color:#6e3e53;background:#f7f2f4}
+.mitigation-workspace>.lead{max-width:850px}
+.mitigation-role-section{margin-top:28px}
+.mitigation-role-section>h2,.mitigation-role-section .spread h2{margin:7px 0 13px}
+.mitigation-priority-list{margin-top:18px;border-top:1px solid #ece4e8}
+.mitigation-priority-list article{display:grid;grid-template-columns:54px minmax(0,1fr);gap:16px;padding:20px 4px;border-bottom:1px solid #ece4e8}
+.mitigation-priority-index{font-family:var(--font-display);font-size:25px;color:#6e3e53}
+.mitigation-priority-list h3{margin:0 0 6px}
+.mitigation-priority-list p{max-width:860px;margin:0;color:#595155;font-size:13px}
+.mitigation-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:9px}
+.mitigation-links .text-link{text-align:left;font-size:12px}
+.mitigation-decision{padding:17px 19px;margin-top:10px;border:1px solid #ece4e8;border-radius:20px;background:#fff}
+.mitigation-decision h3{margin:7px 0}
+.mitigation-decision p{margin:5px 0;color:#595155}
+.rth-work-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0}
+.rth-work-list button{display:grid;justify-items:start;gap:6px;padding:18px 20px;border:1px solid #ece4e8;border-radius:20px;background:#fff;text-align:left;color:#272023;cursor:pointer}
+.rth-work-list button:hover{border-color:#6e3e53;background:#f7f2f4}
+.rth-work-list strong{font-family:var(--font-display);font-size:20px}
+.rth-work-list span:not(.pill),.rth-work-list small{color:#595155}
+.rth-alert{margin-top:16px}
+.rth-alert .text-link{display:inline}
+@media(max-width:760px){.dashboard-role-panel{grid-template-columns:1fr;padding:22px}.dashboard-role-evidence{border-left:0;border-top:1px solid #ece4e8;padding:16px 0 0}.rth-work-list{grid-template-columns:1fr}}

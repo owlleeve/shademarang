@@ -6,10 +6,13 @@ import "leaflet/dist/leaflet.css";
 import "./design-system.css";
 import "./home-assistant.css";
 import "./map-indicators.css";
+import "./login-polish.css";
 import "./private-knowledge.css";
 import "./private-knowledge-modal.css";
 import "./public-knowledge.css";
 import "./spacing-tune.css";
+import "./planning.css";
+import "./role-workspace.css";
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", display: "swap" });
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
 export function generateMetadata(): Metadata { return { title: { default: "ShadeMarang", template: "%s" }, description: "Pengetahuan dan tindakan untuk kondisi panas Kota Semarang", applicationName: "ShadeMarang KMS", openGraph: { title: "ShadeMarang", description: "Jelajahi kondisi panas dan pengetahuan mitigasi Kota Semarang", locale: "id_ID", type: "website" } }; }

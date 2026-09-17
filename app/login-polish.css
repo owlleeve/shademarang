@@ -1,0 +1,76 @@
+/* Login is a focused trust surface, separate from the full-height detail drawer. */
+.overlay:has(> [role="dialog"][aria-label="Masuk akun demo"]) {
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgb(53 42 53 / .58);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.overlay > [role="dialog"][aria-label="Masuk akun demo"] {
+  width: min(460px, 100%);
+  height: auto;
+  max-height: min(720px, calc(100dvh - 48px));
+  border: 1px solid #d9c5ce;
+  border-radius: 26px;
+  padding: 32px;
+  background:
+    radial-gradient(circle at 100% 0%, #f1e1e8 0, transparent 42%),
+    var(--surface);
+  box-shadow: 0 24px 70px rgb(53 42 53 / .22);
+  animation: login-enter .2s ease-out;
+}
+
+.overlay > [role="dialog"][aria-label="Masuk akun demo"] .spread {
+  align-items: start;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.overlay > [role="dialog"][aria-label="Masuk akun demo"] h2 { margin: 0; font-size: 30px; }
+.overlay > [role="dialog"][aria-label="Masuk akun demo"] .spread .btn {
+  min-height: 34px;
+  padding: 7px 11px;
+  font-size: 12px;
+}
+.overlay > [role="dialog"][aria-label="Masuk akun demo"] > .muted {
+  margin: 18px 0 24px;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.overlay > [role="dialog"][aria-label="Masuk akun demo"] .form { gap: 16px; }
+.overlay > [role="dialog"][aria-label="Masuk akun demo"] .form label { gap: 7px; }
+.overlay > [role="dialog"][aria-label="Masuk akun demo"] .field {
+  min-height: 46px;
+  border-radius: 12px;
+  background: #fff;
+}
+.overlay > [role="dialog"][aria-label="Masuk akun demo"] .form .btn.primary {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 4px;
+  box-shadow: 0 8px 18px #8c5c7330;
+}
+.overlay > [role="dialog"][aria-label="Masuk akun demo"] > .small {
+  margin: 22px 0 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #f8eef2;
+  color: #704258;
+  line-height: 1.55;
+}
+.overlay > [role="dialog"][aria-label="Masuk akun demo"] [role="alert"] {
+  margin: -4px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f9e9ea;
+  font-size: 12px;
+}
+@keyframes login-enter { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+@media (max-width: 540px) {
+  .overlay:has(> [role="dialog"][aria-label="Masuk akun demo"]) { padding: 14px; }
+  .overlay > [role="dialog"][aria-label="Masuk akun demo"] { padding: 24px 20px; border-radius: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .overlay > [role="dialog"][aria-label="Masuk akun demo"] { animation: none; }
+}
