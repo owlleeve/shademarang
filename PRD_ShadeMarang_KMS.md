@@ -40,8 +40,6 @@ Dokumen ini memuat **kebutuhan produk yang dituju**. Bagian 4 mencatat **apa yan
 
 **Status data:** angka contoh, proyeksi, klaster, dan ilustrasi anomali harus diberi label dan diverifikasi sebelum digunakan untuk kebijakan atau tindakan lapangan.
 
-Rute legacy `/kelola`, `/kms/*`, `/siklus-kms`, dan `/wilayah` telah dihapus. Pemilihan wilayah dilakukan di Dashboard UHI, sedangkan menu **Dokumen DLH**, **Kajian Peneliti**, dan **Kelola KMS** memakai navigasi portal, bukan URL terpisah. Data contoh yang masih dipakai telah dipindahkan ke `lib/referenceData.ts`.
-
 
 ## 5. Struktur Informasi dan Alur Inti
 
