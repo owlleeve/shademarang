@@ -10,7 +10,7 @@ type Knowledge={id:string;title:string;summary:string;area:string;category:strin
 type Props={role:string;areas:Area[];actions:Action[];evaluations:Evaluation[];knowledge:Knowledge[];decisions:PlanningDecision[];onAction:(id:string)=>void;onKnowledge:(id:string)=>void;onPlanning:()=>void;onEvaluation:()=>void;onSubmitAction:(data:FormData)=>void};
 
 export default function MitigationWorkspace({role,areas,actions,evaluations,knowledge,decisions,onAction,onKnowledge,onPlanning,onEvaluation,onSubmitAction}:Props){
- const internal=role!=="publik",canAct=role==="dlh"||role==="admin";
+ const internal=role!=="publik",canAct=role==="dlh";
  const visibleActions=internal?actions:actions.filter(item=>item.status==="selesai");
  const rthActions=actions.filter(item=>/rth|hijau|pohon|kanopi|taman/i.test(`${item.kind} ${item.title}`));
  const unevaluated=actions.filter(item=>item.status==="selesai"&&!evaluations.some(evaluation=>evaluation.actionId===item.id));

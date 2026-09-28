@@ -22,8 +22,7 @@ Dokumen ini memuat **kebutuhan produk yang dituju**. Bagian 4 mencatat **apa yan
 | Publik/masyarakat (eksternal) | Melihat peta/ringkasan yang telah dipublikasikan dan menggunakan chatbot informasi UHI. Tidak melihat data internal, detail keputusan, atau evaluasi mentah. |
 | BAPPEDA Kota Semarang (internal) | Menggunakan dashboard UHI, peta prioritas, tren, kajian yang disetujui, dan ringkasan evaluasi sebagai bahan perencanaan. Mencatat arah perencanaan dengan rujukan kajian; tidak mengubah tindakan atau evaluasi DLH. |
 | DLH Kota Semarang (internal) | Menggunakan hasil kajian untuk pelaksanaan RTH/penghijauan, mencatat status tindakan, melakukan evaluasi pasca-mitigasi, dan mengirim dokumen pembelajaran untuk ditinjau. Akses ruang kerja **Dokumen DLH** bukan kewenangan mengelola seluruh KMS. |
-| Akademisi/peneliti (internal sesuai klasifikasi minggu 2) | Mengolah data dan membuat kajian/analisis; melakukan penilaian validasi internal hasil AI dengan bukti, metode, metrik, dan keterbatasan; mengirim catatan untuk ditinjau. Peneliti tidak menyetujui publikasi. |
-| Admin KMS/reviewer | Meninjau dokumen dan evaluasi, meminta revisi, menyetujui, menerbitkan konten, serta mengaudit perubahan. Pengelolaan pengguna/kategori/hak akses secara penuh masih merupakan kebutuhan target. |
+| Akademisi/peneliti (internal sesuai klasifikasi minggu 2) | Mengolah data dan membuat kajian/analisis; membuat kajian/analisis dan menyimpan draf di ruang kerja. |
 
 **Aturan akses:** data mentah, data berlisensi, dokumen internal, dan catatan keputusan internal hanya terlihat oleh pengguna yang berwenang. Konten publik harus melewati status “ditinjau” sebelum tayang.
 
@@ -33,7 +32,7 @@ Dokumen ini memuat **kebutuhan produk yang dituju**. Bagian 4 mencatat **apa yan
 |---|---|---|
 | Identitas dan akses | Login peran demo di browser; navigasi dan data portal difilter menurut peran. | Peran disimpan di `sessionStorage`, data kerja di `localStorage`. Belum ada autentikasi/otorisasi server; endpoint API demo tidak terlindungi oleh login portal. Ini belum memenuhi proteksi produksi. |
 | Dashboard dan peta | Dashboard berbeda untuk publik, BAPPEDA, DLH, dan peneliti. Peta dasar OpenStreetMap/Leaflet dengan titik perwakilan, lapisan tematik, dan detail wilayah. Tersedia endpoint demo Open-Meteo untuk suhu udara model pada ketinggian 2 m. | LST, vegetasi, dan prioritas wilayah adalah data contoh, bukan pengukuran langsung atau batas administratif presisi. Mode suhu udara Open-Meteo belum menjadi pilihan pada dashboard utama; data tersebut bukan LST atau deteksi hotspot UHI waktu nyata. |
-| Pengetahuan dan dokumen | Pustaka publik berisi dokumen berstatus `dipublikasikan`; pustaka internal menampilkan dokumen sesuai peran. Peneliti mengirim kajian/penilaian; DLH mengirim dokumen pembelajaran; admin meninjau dan menerbitkan. BAPPEDA mencatat perencanaan dari kajian yang disetujui. | Dokumen portal tersimpan di browser. URL sumber dapat dicatat, tetapi unggah berkas fisik, penyimpanan bersama, notifikasi, pemulihan versi, dan hak akses server belum ada. Ekspor indeks berupa TSV dan unduh ringkasan berupa TXT, bukan PDF SOP. |
+| Pengetahuan dan dokumen | Pustaka publik berisi dokumen berstatus `dipublikasikan`; pustaka internal menampilkan dokumen sesuai peran. Peneliti mengirim kajian/penilaian; DLH mengirim dokumen pembelajaran; peninjauan dan penerbitan lintas peran belum tersedia. BAPPEDA mencatat perencanaan dari kajian yang disetujui. | Dokumen portal tersimpan di browser. URL sumber dapat dicatat, tetapi unggah berkas fisik, penyimpanan bersama, notifikasi, pemulihan versi, dan hak akses server belum ada. Ekspor indeks berupa TSV dan unduh ringkasan berupa TXT, bukan PDF SOP. |
 | Analisis dan AI | Halaman Analisis menghubungkan data capture contoh dengan keluaran prediksi dan klaster referensi. Peneliti dapat mengirim catatan pemeriksaan internal beserta URL bukti, periode, metode/versi, metrik, dan temuan untuk ditinjau. | Prediksi/klaster berasal dari data demonstrasi modul sumber; tidak dihitung ulang oleh model terlatih yang terhubung ke data aktif. Catatan peneliti bukan pengesahan model otomatis. Versi model aktif, tanggal pelatihan, metrik tervalidasi, dan pipeline data nyata belum tersedia. |
 | Mitigasi dan evaluasi | DLH mencatat tindakan RTH/penghijauan serta evaluasi. BAPPEDA membaca wilayah prioritas, riwayat tindakan, dan menyimpan catatan perencanaan. Selisih LST terukur terhadap proyeksi di atas 1,0°C diberi tanda untuk verifikasi bila kedua angka dan URL sumber tersedia. | Penanda anomali adalah aturan selisih sederhana, bukan model deteksi anomali terlatih. Pengguna internal saat ini dapat membuat draf pengetahuan dari evaluasi yang disetujui; pembatasan aksi ini ke peran yang tepat dan pembaruan model otomatis belum tersedia. |
 | Tanya AI | Pencarian berbasis kata kunci pada dokumen publik yang tersedia, dengan tautan ke sumber jawaban. | Belum menggunakan LLM atau analisis model AI; nama antarmuka “Tanya AI” tidak menandakan kemampuan generatif. |
@@ -49,9 +48,9 @@ Dokumen ini memuat **kebutuhan produk yang dituju**. Bagian 4 mencatat **apa yan
 
 ### 5.2 Alur internal
 
-`Peneliti meninjau data capture dan keluaran AI → mencatat penilaian validasi internal → reviewer meninjau kajian/dokumen → Dashboard menyalurkan hasil yang disetujui → BAPPEDA mencatat arah perencanaan → DLH melaksanakan RTH/mitigasi → DLH mengevaluasi dan mengirim hasil → reviewer membuat/menyetujui pembelajaran di Pengetahuan`
+`Peneliti memeriksa data capture dan keluaran contoh AI → membuat draf kajian → BAPPEDA mencatat arah perencanaan → DLH melaksanakan RTH/mitigasi → DLH menyimpan evaluasi lapangan dan dokumen pembelajaran`
 
-Dalam prototipe, penilaian peneliti menghasilkan **dokumen menunggu tinjau**, bukan perubahan status model AI. Keputusan publikasi tetap pada admin/reviewer. Ruang **Dokumen DLH** dan **Kajian Peneliti** menggunakan alur pengajuan yang sama; tampilan **Kelola KMS** lintas peran hanya untuk admin.
+Ruang **Dokumen DLH** dan **Kajian Peneliti** digunakan untuk menyimpan draf masing-masing peran. Peninjauan lintas dokumen dan penerbitan konten tidak tersedia pada prototipe.
 
 ### 5.3 Objek data utama
 
@@ -77,7 +76,7 @@ Dalam prototipe, penilaian peneliti menghasilkan **dokumen menunggu tinjau**, bu
 |---|---|---|
 | BAPPEDA | Wilayah prioritas, tren UHI, rekomendasi tata ruang/RTH, kajian tervalidasi, dan ringkasan evaluasi yang telah disetujui | Membandingkan wilayah dan memakai hasil sebagai bahan perencanaan/kebijakan; tidak mengubah status tindakan DLH atau mengisi evaluasi operasional |
 | DLH | Wilayah yang perlu ditangani, daftar tindakan RTH/penghijauan, status pelaksanaan, serta evaluasi yang belum diisi/menunggu tinjau | Membuat dan memperbarui tindakan, mencatat pelaksanaan, mengisi evaluasi pasca-mitigasi, dan mengirimkannya untuk ditinjau |
-| Akademisi/peneliti | Kajian, analisis, sumber data, dan status validasi | Membuat kajian/analisis, mengirim konten untuk tinjauan, dan memperbaiki konten sesuai catatan reviewer |
+| Akademisi/peneliti | Kajian, analisis, sumber data, dan status validasi | Membuat dan mengelola draf kajian/analisis |
 | Publik | Hanya peta, ringkasan, dan pengetahuan yang berstatus dipublikasikan | Membaca, mencari, dan menggunakan chatbot; tidak melihat data mentah, keputusan internal, atau evaluasi rinci |
 
 | ID | Kebutuhan |
@@ -156,7 +155,6 @@ Dalam prototipe, penilaian peneliti menghasilkan **dokumen menunggu tinjau**, bu
 | ANL-05 | Setiap hasil analisis menyimpan metadata: sumber data, periode, metode, pembuat, waktu dibuat, serta catatan keterbatasan. |
 | ANL-06 | Sistem membedakan “hasil data” dari “interpretasi/rekomendasi” secara visual dan data model. |
 | ANL-07 | Bila model AI digunakan, sistem menampilkan versi model, tanggal pelatihan, cakupan data, dan peringatan bahwa hasil adalah dukungan keputusan, bukan keputusan otomatis. |
-| ANL-08 | Peneliti dapat mencatat penilaian validasi internal hasil AI dengan URL bukti, periode data, metode/versi model, metrik uji, temuan/keterbatasan, dan rekomendasi “perlu perbaikan” atau “layak ditinjau”. Catatan masuk ke alur tinjau dokumen; peneliti tidak menerbitkannya sendiri. |
 | ANL-09 | BAPPEDA dapat membaca prediksi dan klaster sebagai bahan eksplorasi, lalu membuka kajian yang disetujui dan mencatat arah perencanaan. Keluaran model demonstrasi tidak boleh diperlakukan sebagai kajian tervalidasi. |
 
 **Kriteria penerimaan:** hasil analisis dapat ditelusuri kembali ke sumber dan periode data yang dipakai.
@@ -171,10 +169,10 @@ Dalam prototipe, penilaian peneliti menghasilkan **dokumen menunggu tinjau**, bu
 | EVA-02 | Form evaluasi memuat kondisi awal, kondisi setelah tindakan, indikator yang dipantau, hasil, hambatan, dan pembelajaran. |
 | EVA-03 | Sistem mendukung lampiran foto, peta, laporan, dan dokumen pembuktian sesuai hak akses. |
 | EVA-04 | Sistem menampilkan perbandingan sebelum/sesudah dengan periode yang jelas; tidak menyimpulkan keberhasilan apabila data pembanding tidak memadai. |
-| EVA-05 | Evaluasi memiliki status internal: draf, menunggu tinjau, disetujui, dan perlu revisi. Status publikasi terpisah dan hanya dapat dilakukan oleh admin/reviewer. |
-| EVA-06 | Evaluasi disetujui dapat dibuat menjadi konten pengetahuan internal secara otomatis, tetapi tetap dapat diedit sebelum diterbitkan. Ringkasan publik hanya dibuat jika admin memilih untuk mempublikasikannya. |
+| EVA-05 | Evaluasi tindakan disimpan sebagai draf internal. |
+| EVA-06 | Evaluasi dapat dibuat menjadi draf pembelajaran internal di Pengetahuan. |
 | EVA-07 | Sistem menampilkan tindakan yang belum dievaluasi dan evaluasi yang menunggu tinjau. |
-| EVA-08 | Bila tersedia LST terukur dan proyeksi pembanding beserta sumber, sistem menampilkan selisihnya. Ambang contoh `abs(terukur − proyeksi) > 1,0°C` hanya memberi tanda **perlu verifikasi**; DLH meninjau data lapangan, reviewer meninjau evaluasi, dan pembelajaran dapat dikirim ke Pengetahuan. Pelatihan ulang model memerlukan alur terpisah dan tidak dilakukan otomatis oleh penanda ini. |
+| EVA-08 | Bila tersedia LST terukur dan proyeksi pembanding beserta sumber, sistem menampilkan selisihnya. Ambang contoh `abs(terukur − proyeksi) > 1,0°C` hanya memberi tanda **perlu verifikasi**; DLH meninjau data lapangan, pemeriksaan angka dilakukan oleh pengguna yang mencatat evaluasi. Pelatihan ulang model memerlukan alur terpisah dan tidak dilakukan otomatis oleh penanda ini. |
 
 **Kriteria penerimaan:** pembelajaran dari evaluasi dapat ditemukan melalui pencarian Pengetahuan dan muncul sebagai rujukan saat pengguna membuat tindakan serupa.
 
@@ -184,16 +182,14 @@ Dalam prototipe, penilaian peneliti menghasilkan **dokumen menunggu tinjau**, bu
 
 | ID | Kebutuhan |
 |---|---|
-| KMS-01 | Sistem menyediakan unggah dokumen, input metadata, dan pemilihan akses internal. Status publik hanya dapat dipilih saat proses publikasi oleh admin/reviewer. |
+| KMS-01 | Sistem menyediakan unggah dokumen, input metadata, dan pemilihan akses internal. Status publikasi tidak dapat diubah melalui ruang kerja internal. |
 | KMS-02 | Sistem menyediakan alur tinjau: draf → menunggu tinjau → disetujui/perlu revisi → dipublikasikan. |
-| KMS-03 | Reviewer dapat memberi catatan revisi; akademisi/peneliti atau DLH sebagai pembuat menerima notifikasi dan dapat mengirim ulang. |
+| KMS-03 | Pembuat dapat memperbarui dan menyimpan ulang draf dokumen. |
 | KMS-04 | Sistem menyimpan riwayat versi dan audit perubahan untuk setiap dokumen, rekomendasi, tindakan, evaluasi, dan keputusan. |
-| KMS-05 | Admin dapat mengelola kategori, tag, wilayah, dan pengguna tanpa menghapus riwayat yang sudah dipakai sebagai rujukan. |
 | KMS-06 | Sistem mendeteksi konten yang belum diperbarui dalam periode yang ditentukan dan menandainya untuk ditinjau. |
-| KMS-07 | Penghapusan bersifat *soft delete* untuk admin dan wajib meninggalkan jejak audit. |
-| KMS-08 | Menu dan daftar kerja mengikuti peran: **Dokumen DLH** untuk kiriman pembelajaran DLH, **Kajian Peneliti** untuk kajian/validasi peneliti, dan **Kelola KMS** untuk peninjauan lintas dokumen oleh admin. Pembuat hanya mengirim draf atau revisi; reviewer yang menyetujui dan menerbitkan. |
+| KMS-08 | Menu dan daftar kerja mengikuti peran: **Dokumen DLH** untuk dokumen pembelajaran DLH dan **Kajian Peneliti** untuk kajian/analisis peneliti. |
 
-**Kriteria penerimaan:** admin dapat menjawab siapa mengubah konten apa, kapan, dan versi mana yang berlaku saat ini.
+**Kriteria penerimaan:** dokumen draf menampilkan metadata dan riwayat versi.
 
 ## 7. Kebutuhan Lintas Modul
 
@@ -239,7 +235,5 @@ Dalam prototipe, penilaian peneliti menghasilkan **dokumen menunggu tinjau**, bu
 
 1. **BAPPEDA memilih wilayah pada peta** → melihat kondisi, kajian tervalidasi, dan ringkasan hasil evaluasi yang telah disetujui → memakai informasi tersebut sebagai bahan catatan keputusan/perencanaan.
 2. **DLH menyelesaikan tindakan penghijauan** → membuat evaluasi → evaluasi ditinjau → pembelajaran muncul pada Pengetahuan dan rekomendasi wilayah serupa.
-3. **Peneliti mengunggah kajian** → menambahkan metadata wilayah/periode → reviewer meminta revisi → kajian disetujui dan hanya kemudian dapat ditampilkan ke publik.
-4. **Peneliti memeriksa hasil AI** → memasukkan sumber bukti, periode, metode/versi, metrik, dan temuan → catatan berstatus menunggu tinjau → reviewer menilai dokumen; status model tidak berubah otomatis.
+3. **Peneliti mengunggah kajian** → menambahkan metadata wilayah/periode → menyimpan draf kajian.
 5. **Masyarakat mencari “wilayah panas”** → menerima ringkasan yang sederhana dan konten publik tanpa melihat data/keputusan internal.
-6. **Admin meninjau perubahan konten** → melihat versi, pembuat, waktu perubahan, serta memulihkan versi sebelumnya tanpa menghilangkan jejak audit. Pemulihan versi masih target, belum tersedia pada prototipe.
